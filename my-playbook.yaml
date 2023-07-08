@@ -1,0 +1,13 @@
+---
+- name: Configure nginx web server
+  hosts: ubuntu_servers
+  become: True
+  tasks:
+    - name: install nginx server
+      apt:
+        name: nginx
+        state: absent
+    - name: start nginx server
+      service:
+        name: nginx
+        state: stopped
